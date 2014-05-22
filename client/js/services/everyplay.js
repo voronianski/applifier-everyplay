@@ -19,13 +19,6 @@ define(['app'], function (app) {
 				method: 'GET',
 				cache: true,
 				params: { resource: 'videos' }
-			},
-
-			getAllGames: {
-				method: 'GET',
-				isArray: true,
-				cache: true,
-				params: { resource: 'games', limit: 25 }
 			}
 		};
 
