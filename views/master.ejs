@@ -16,7 +16,7 @@
 		<a href="/"><img src="/img/logo.png" class="logo" alt="Everyplay logo"></a>
 	</header>
 
-	<div ng-hide="loaded" class="preloader">Loading...</div>
+	<div ng-hide="loaded" class="preloader"></div>
 	<div ng-show="loaded" ng-view class="main-wrap"></div>
 
 	<!-- Videos list -->
@@ -43,7 +43,7 @@
 	<!-- Video details -->
 	<script type="text/ng-template" id="videoDetailsView">
 		<h2>{{video.title}}</h2>
-		<video ng-src="{{video.uri}}" autoplay controls width="500" height="285">
+		<video ng-src="{{video.uri}}" autoplay autobuffer controls width="500" height="285">
 		</video>
 		<div class="video-details">
 			<div class="user left">

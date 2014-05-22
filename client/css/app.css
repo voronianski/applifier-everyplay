@@ -18,11 +18,6 @@ body {
 	margin: 10px 20px;
 }
 
-.preloader {
-	font-size: 18px;
-	padding-top: 100px;
-}
-
 .main-wrap {
 	padding: 68px 20px 20px;
 }
@@ -114,4 +109,33 @@ body {
 	display: inline-block;
 	font-size: 14px;
 	margin-top: 10px;
+}
+
+/* Preloader */
+.preloader {
+	height: 24px;
+	width: 24px;
+	position: relative;
+	top: 100px;
+	left: 60px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: #2181cf #eee;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	-webkit-animation: clockwise .6s linear infinite;
+	-moz-animation: clockwise .6s linear infinite;
+	animation: clockwise .6s linear infinite;
+}
+
+@-webkit-keyframes clockwise {
+	to { -webkit-transform: rotate(360deg) translateZ(0); }
+}
+
+@-moz-keyframes clockwise {
+	to { -moz-transform: rotate(360deg) translateZ(0); }
+}
+
+@keyframes clockwise {
+	to { transform: rotate(360deg) translateZ(0); }
 }
