@@ -16,7 +16,8 @@
 		<a href="/"><img src="/img/logo.png" class="logo" alt="Everyplay logo"></a>
 	</header>
 
-	<div ng-view class="main-wrap"></div>
+	<div ng-hide="loaded" class="preloader">Loading...</div>
+	<div ng-show="loaded" ng-view class="main-wrap"></div>
 
 	<!-- Videos list -->
 	<script type="text/ng-template" id="videoListView">

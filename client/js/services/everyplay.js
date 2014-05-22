@@ -17,7 +17,6 @@ define(['app'], function (app) {
 
 			getVideo: {
 				method: 'GET',
-				cache: true,
 				params: { resource: 'videos' }
 			}
 		};

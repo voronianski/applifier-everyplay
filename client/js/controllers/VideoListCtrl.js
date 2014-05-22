@@ -1,8 +1,10 @@
-define(['angular', 'underscore', 'app', 'services/everyplay'], function (angular, _, app) {
+define(['angular', 'underscore', 'app', 'services/everyplay', 'services/preloader'], function (angular, _, app) {
 	'use strict';
 
-	return app.controller('VideoListCtrl', ['$scope', 'everyplay',
-		function ($scope, everyplay) {
+	return app.controller('VideoListCtrl', ['$scope', 'everyplay', 'preloader',
+		function ($scope, everyplay, preloader) {
+			preloader.loading();
+
 			$scope.games = [];
 			everyplay.getAllVideos({ order: 'popularity_alltime' }, function (videos) {
 				_(videos).each(function (video) {
@@ -13,7 +15,10 @@ define(['angular', 'underscore', 'app', 'services/everyplay'], function (angular
 						$scope.games.push(video.game.name);
 					}
 				});
+
 				$scope.videos = videos;
+
+				preloader.ready();
 			});
 		}
 	]);
