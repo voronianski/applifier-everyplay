@@ -1,0 +1,15 @@
+{
+  "name": "Applifier",
+  "version": "0.0.0",
+  "description": "Test Applifier app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dmitri Voronianski",
+  "license": "BSD",
+  "dependencies": {
+    "express": "^4.3.0",
+    "ejs": "^1.0.0"
+  }
+}

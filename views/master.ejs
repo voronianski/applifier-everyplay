@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Applifier test app</title>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/app.css">
+
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header class="header">
+		<a href="/"><img src="/img/logo.png" class="logo" alt="Everyplay logo"></a>
+	</header>
+
+	<div ng-view class="main-wrap"></div>
+
+	<!-- Videos list -->
+	<script type="text/ng-template" id="videoListView">
+		<div class="filter">
+			Filter:
+			<select ng-model="currentGameName">
+				<option value="">All games</option>
+				<option value="{{game}}" ng-repeat="game in games">{{game}}</option>
+			</select>
+		</div>
+
+		<ul class="video-list">
+			<li ng-repeat="video in videos|filter:currentGameName" class="video-item clearfix">
+				<a ng-href="/video/{{video.id}}" class="thumb left" style="background-image: url({{video.preview_thumbnail || video.thumbnail_url}})"></a>
+				<div class="info left">
+					<a ng-href="/video/{{video.id}}" class="title">{{video.title}}</a>
+					<div class="author">by {{video.user.username}}</div>
+				</div>
+			</li>
+		</ul>
+	</script>
+
+	<!-- Video details -->
+	<script type="text/ng-template" id="videoDetailsView">
+		<h2>{{video.title}}</h2>
+		<video ng-src="{{video.uri}}" autoplay controls width="500" height="285">
+		</video>
+		<div class="video-details">
+			<div class="user left">
+				<img ng-src="{{video.user.avatar_url}}" class="avatar">
+				<div>{{video.user.username}}</div>
+			</div>
+			<time>posted on {{video.created_at|date:longDate}}</time>
+		</div>
+	</script>
+
+	<script type="text/javascript" data-main="/js/main.js" src="/bower_components/requirejs/require.js"></script>
+</body>
+</html>
