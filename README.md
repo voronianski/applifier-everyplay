@@ -2,6 +2,8 @@
 
 Test everyplay API consumer app.
 
+Simple single-page client powered by Angular.js
+
 ##How to run
 
 1. Fork this repository
